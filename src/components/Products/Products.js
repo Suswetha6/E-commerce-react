@@ -1,8 +1,9 @@
 import ProductCard from "../ProductCard/ProductCard";
 import Effect from "../Effect/Effect";
+import React from 'react';
 import { useState, useEffect } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
-function Products({cart, increaseQuantity, decreaseQuantity}) {
+function Products() {
     
   let [products, setProducts] = useState([]);
 
@@ -24,7 +25,7 @@ function Products({cart, increaseQuantity, decreaseQuantity}) {
           <div><Effect /></div>
             {
                 products.map(function (item, index) {
-                  return (<ProductCard key={index}  product={item}  cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity}/>)
+                  return (<ProductCard key={index}  product={item}/>)
                 })
             }
         </div>
@@ -32,4 +33,4 @@ function Products({cart, increaseQuantity, decreaseQuantity}) {
 }
 export let a = 10;
 export let b = 20;
-export default Products;
+export default React.memo(Products);
